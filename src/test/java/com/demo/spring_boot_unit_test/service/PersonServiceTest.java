@@ -37,4 +37,15 @@ class PersonServiceTest {
         assertThat(personList.size()).isEqualTo(2);
 
     }
+
+    @Test
+    void getPersonById() {
+        Person person1= new Person(1,"Ahnis","Gotham");
+        when(personRepository.findByPersonId(1)).thenReturn(person1);
+        Person result = personService.getById(1);
+        assertThat(result).isNotNull();
+        assertThat(result.getPersonId()).isEqualTo(1);
+        assertThat(result.getPersonName()).isEqualTo("Ahnis");
+        assertThat(result.getPersonCity()).isEqualTo("Gotham");
+    }
 }

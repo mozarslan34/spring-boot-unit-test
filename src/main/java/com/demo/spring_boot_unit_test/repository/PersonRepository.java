@@ -15,5 +15,5 @@ public interface PersonRepository extends JpaRepository<Person, Integer> {
 
     boolean existsById(Integer id);
 
-    List<Person> findAll();
+    Person findByPersonId(int id);
 }

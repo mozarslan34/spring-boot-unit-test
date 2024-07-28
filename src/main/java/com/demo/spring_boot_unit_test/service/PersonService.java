@@ -23,4 +23,8 @@ public class PersonService {
     {
         return personRepository.findAll();
     }
+
+    public Person getById(Integer id){
+        return personRepository.findByPersonId(id);
+    }
 }
