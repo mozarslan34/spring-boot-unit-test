@@ -1,0 +1,32 @@
+server:
+  port: 3175
+  forward-headers-strategy: framework
+spring:
+  application:
+    name: Unit_test
+  datasource:
+    username: postgres
+    url: jdbc:postgresql://localhost:5438/unit_test?useSSL=false
+    password: postgres
+    hikari:
+      maximum-pool-size: 2
+  jpa:
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: 'true'
+        jdbc:
+          lab:
+            non_contexttual_creation: 'true'
+    hibernate:
+      ddl-auto: none
+  servlet:
+    multipart:
+      max-request-size: 25MB
+      max-file-size: 10MB
+  jooq:
+    sql-dialect:
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
